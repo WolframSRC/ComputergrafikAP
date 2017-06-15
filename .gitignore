@@ -1,0 +1,7 @@
+build
+CMakeCache.txt
+CMakeLists.txt.user
+CMakeFiles
+Abschlussprojekt.pro.user
+PA
+*.cbp
