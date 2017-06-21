@@ -6,10 +6,12 @@
 class Grass{
 public:
     void draw(QMatrix4x4 matrix, QMatrix4x4 matrixprojection, int ibolength);
-    Grass(float x, float y, float z, float w, QOpenGLShaderProgram *shader);
+    void setShader(QOpenGLShaderProgram *shader);
     Grass();
+    void setPos(float x,float y,float z);
+    QVector3D getPos();
 private:
-    QVector4D pos;
+    QVector3D pos;
     QOpenGLShaderProgram *shader=nullptr;
 };
 

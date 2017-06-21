@@ -6,11 +6,13 @@ MyGLWidget::MyGLWidget(QWidget *parent):QOpenGLWidget(parent)
 }
 
 void MyGLWidget::initializeGL(){
+    qDebug().nospace().noquote() << "Actual OpenGL version: " << QString::number(this->context()->format().version().first) + "." + QString::number(this->context()->format().version().second);
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-    terra = new Terrain();
+    QVector2D screen(this->width(), this->height());
+    terra = new Terrain(screen);
 }
 
 void MyGLWidget::resizeGL(int width, int height)
@@ -24,11 +26,10 @@ void MyGLWidget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0.0f, 0.0f, this->width(), this->height());
     QMatrix4x4 matrix;
-    QVector4D pos;
+    QVector3D pos;
     pos.setX(viewx+deltaxtrans*0.2f);
     pos.setY(viewy+deltaytrans*0.2f);
     pos.setZ(zoom);
-    pos.setW(0);
     matrix = initMatrix();
     terra->draw(matrix,pos);
     update();

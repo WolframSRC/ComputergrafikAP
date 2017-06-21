@@ -3,18 +3,22 @@ Grass::Grass(){
     pos.setX(1);
     pos.setY(1);
     pos.setZ(1);
-    pos.setW(1);
 }
 
-Grass::Grass(float x, float y, float z, float w, QOpenGLShaderProgram *shader){
+void Grass::setShader(QOpenGLShaderProgram *shader){
+    this->shader = shader;
+}
+void Grass::setPos(float x,float y,float z){
     pos.setX(x);
     pos.setY(y);
     pos.setZ(z);
-    pos.setW(w);
-    this->shader = shader;
+}
+QVector3D Grass::getPos(){
+    return this->pos;
 }
 
 void Grass::draw(QMatrix4x4 matrix,QMatrix4x4 matrixprojection,int ibolength){
+    matrix.translate(pos.x(),pos.y(),pos.z());
     int attrVertices = shader->attributeLocation("vert"); // #version 130
     shader->enableAttributeArray(attrVertices);
 

@@ -44,3 +44,5 @@ FORMS    += mainwindow.ui
 
 RESOURCES += \
     shader.qrc
+
+DISTFILES +=

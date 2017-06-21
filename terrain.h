@@ -11,7 +11,9 @@
 class Terrain{
 public:
     Terrain();
-    void draw(QMatrix4x4 matrix, QVector4D pos);
+    Terrain(QVector2D screen);
+    void draw(QMatrix4x4 matrix, QVector3D pos);
+
 private:
     QOpenGLBuffer* vbo; // Typ festlegen
     QOpenGLBuffer* ibo;
@@ -22,17 +24,18 @@ private:
     void initShaders();
     void inittex();
     void initProjectionmatrix();
-    void initGrass(QVector4D pos);
-
+    void initGrass(QVector2D screen);
+    void setGrassPos(QVector3D pos);
     GLfloat *vboData=nullptr;
     GLuint *indexData=nullptr;
     QOpenGLShaderProgram *shader = nullptr;
-
+    int anzahlgrass=0;
     float aspect=1;
     QMatrix4x4 matrixprojection;
     unsigned int vboLength;
     unsigned int iboLength;
-    Grass* grassarray[anzahlgrass];
+    Grass* grassarray;
+    QVector4D oldPos;
 };
 
 #endif // TERRAIN_H

@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>Shader/texture.frag</file>
-        <file>Shader/texture.vert</file>
+        <file>Shader/fragment.frag</file>
+        <file>Shader/vertex.vert</file>
+        <file>Shader/tesselationControl.tcs</file>
+        <file>Shader/tesselationEvaluation.tes</file>
+        <file>Shader/Geometry.geom</file>
     </qresource>
 </RCC>

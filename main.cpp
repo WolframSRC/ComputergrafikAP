@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QSurfaceFormat format;
 
-    format.setVersion(4, 0); // requested OpenGL version; you might have to change this
+    format.setVersion(4, 3); // requested OpenGL version; you might have to change this
     format.setProfile(QSurfaceFormat::CompatibilityProfile);
     format.setOption(QSurfaceFormat::DeprecatedFunctions);
     format.setOption(QSurfaceFormat::DebugContext);

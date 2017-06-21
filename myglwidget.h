@@ -35,7 +35,7 @@ private:
     float deltayrot=0;
 
     int viewy=0;
-    int zoom=0;
+    int zoom=-10;
     int viewx=0;
 
     QMatrix4x4 initMatrix();
